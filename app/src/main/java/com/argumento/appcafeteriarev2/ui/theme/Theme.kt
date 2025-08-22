@@ -1,6 +1,7 @@
 package com.argumento.appcafeteriarev2.ui.theme
 
 import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -43,7 +44,7 @@ fun MyTheme(
         content = content
     )
 
-    val window = (LocalContext.current as? Activity)?.window
+    val window = LocalActivity.current?.window
     window?.statusBarColor = colorScheme.primary.toArgb()
 
 }
