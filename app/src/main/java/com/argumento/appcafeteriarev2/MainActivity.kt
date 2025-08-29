@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.argumento.appcafeteriarev2.screens.Carrinho
 import com.argumento.appcafeteriarev2.screens.Home
 import com.argumento.appcafeteriarev2.screens.Pagamento
+import com.argumento.appcafeteriarev2.screens.SplashScreen
 import com.argumento.appcafeteriarev2.viewmodel.CarrinhoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,8 +25,14 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             val carrinhoViewModel: CarrinhoViewModel = hiltViewModel()
 
-            NavHost( startDestination = "home",
+            NavHost( startDestination = "splash",
                 navController = navController) {
+
+                composable("splash") {
+                    SplashScreen(
+                        navController = navController
+                    )
+                }
 
                 composable("Home") {
                     Home(
