@@ -9,6 +9,7 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven { url = uri("https://jitpack.io") }
     }
 }
 dependencyResolutionManagement {
@@ -16,8 +17,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-    }
+        }
 }
 
 rootProject.name = "App Cafeteria Rev2"
 include(":app")
+include(":escposprinter")

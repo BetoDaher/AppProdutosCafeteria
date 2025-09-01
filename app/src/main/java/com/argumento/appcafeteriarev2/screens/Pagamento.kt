@@ -48,6 +48,8 @@ fun Pagamento(
     val horaAtual = getCurrentFormattedDateTime()
     val produtos = carrinhoViewModel.produtosCarrinho
 
+
+
     MyTheme(theme = "1") {
         Column (
             modifier = Modifier.fillMaxSize(),

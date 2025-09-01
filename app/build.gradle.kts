@@ -64,4 +64,7 @@ dependencies {
     implementation (libs.hilt.android)
     kapt (libs.hilt.compiler)
     implementation (libs.androidx.hilt.navigation.compose)
+
+    //dependencias da impressora
+    //implementation("com.github.DantSu:ESCPOS-ThermalPrinter-Android:3.3.0")
 }
