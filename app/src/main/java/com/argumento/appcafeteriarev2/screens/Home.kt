@@ -17,6 +17,9 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.rounded.Create
+import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -45,6 +48,7 @@ import androidx.navigation.NavController
 import com.argumento.appcafeteriarev2.itemlista.ProdutoItem
 import com.argumento.appcafeteriarev2.model.Produto
 import com.argumento.appcafeteriarev2.ui.theme.BLACK80
+import com.argumento.appcafeteriarev2.ui.theme.GREEN
 import com.argumento.appcafeteriarev2.ui.theme.MyTheme
 import com.argumento.appcafeteriarev2.ui.theme.RED
 import com.argumento.appcafeteriarev2.ui.theme.WHITE
@@ -56,7 +60,6 @@ fun Home(
     navController: NavController,
     carrinhoViewModel: CarrinhoViewModel
 ){
-
     var listaProdutos by remember { mutableStateOf(mutableListOf<Produto>()) }
     var produtosPesquisados by remember { mutableStateOf(mutableListOf<Produto>()) }
     var pesquisar by remember { mutableStateOf("") }
@@ -92,6 +95,30 @@ fun Home(
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ){
+
+                            Icon(
+                                imageVector = Icons.Rounded.Info,
+                                contentDescription = "Carrinho",
+                                tint = MaterialTheme.colorScheme.secondary,
+                                modifier = Modifier.size(30.dp).clickable {
+                                    carrinhoViewModel.numMesa.intValue ++
+                                }
+                            )
+
+                            Text(
+                                text = carrinhoViewModel.numMesa.intValue.toString(),
+                                color = MaterialTheme.colorScheme.secondary,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier
+                                    .background(
+                                        color = GREEN,
+                                        shape = RoundedCornerShape(10.dp)
+                                    )
+                                    .size(30.dp),
+                                textAlign = TextAlign.Center
+                            )
+
                             OutlinedTextField(
                                 value = pesquisar,
                                 onValueChange = {

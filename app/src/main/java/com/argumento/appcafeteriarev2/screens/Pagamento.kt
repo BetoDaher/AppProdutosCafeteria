@@ -43,7 +43,7 @@ import java.util.Locale
 fun Pagamento(
     carrinhoViewModel: CarrinhoViewModel
 ){
-    val numeroMesa: Int = 3
+    val numeroMesa = carrinhoViewModel.numMesa.intValue.toString()
     val total = carrinhoViewModel.calcularTotal()
     val horaAtual = getCurrentFormattedDateTime()
     val produtos = carrinhoViewModel.produtosCarrinho

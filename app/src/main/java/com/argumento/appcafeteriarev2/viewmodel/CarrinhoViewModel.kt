@@ -16,6 +16,7 @@ class CarrinhoViewModel @Inject constructor(private val carrinhoRepository: Carr
 
     var produtosCarrinho = mutableStateListOf<Carrinho>()
     var totalItens = mutableIntStateOf(0)
+    var numMesa = mutableIntStateOf(0)
 
     fun getProdutos(
         response: (MutableList<Produto>) -> Unit
