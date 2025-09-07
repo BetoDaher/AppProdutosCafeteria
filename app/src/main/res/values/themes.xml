@@ -2,4 +2,10 @@
 <resources>
 
     <style name="Theme.AppCafeteriaRev2" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.MySplashScreen." parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/brown</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimationDuration" type="integer">1000</item>
+    </style>
 </resources>

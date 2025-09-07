@@ -25,10 +25,10 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             val carrinhoViewModel: CarrinhoViewModel = hiltViewModel()
 
-            NavHost( startDestination = "splash",
+            NavHost( startDestination = "Home",
                 navController = navController) {
 
-                composable("splash") {
+                composable("Splash") {
                     SplashScreen(
                         navController = navController
                     )
