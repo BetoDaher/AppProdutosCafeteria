@@ -102,7 +102,7 @@ fun Home(
                                 imageVector = Icons.Rounded.Edit,
                                 contentDescription = "Mesa",
                                 tint = MaterialTheme.colorScheme.secondary,
-                                modifier = Modifier.size(30.dp).clickable {
+                                modifier = Modifier.size(30.dp).padding(start = 8.dp).clickable {
                                     //carrinhoViewModel.numMesa.intValue ++
 
                                     mostrarDialogoEdicaoMesa = true // Abre o diálogo
@@ -133,8 +133,8 @@ fun Home(
                                     Text(text = "Pesquisar...")
                                 },
                                 modifier = Modifier
-                                    .width(300.dp)
-                                    .padding(10.dp),
+                                    .width(250.dp)
+                                    .padding(5.dp),
                                 keyboardOptions = KeyboardOptions(
                                     keyboardType = KeyboardType.Text
                                 ),
