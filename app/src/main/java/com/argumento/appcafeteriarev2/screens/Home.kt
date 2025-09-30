@@ -17,8 +17,7 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.rounded.Create
+import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.Info
 import androidx.compose.material.icons.rounded.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -64,6 +63,9 @@ fun Home(
     var produtosPesquisados by remember { mutableStateOf(mutableListOf<Produto>()) }
     var pesquisar by remember { mutableStateOf("") }
 
+    // Estado para controlar a visibilidade do diálogo de edição da mesa
+    var mostrarDialogoEdicaoMesa by remember { mutableStateOf(false) }
+
     listaProdutos = if(pesquisar.isNotEmpty()){
         produtosPesquisados.filter { produto ->
             produto.nome!!.contains(pesquisar, ignoreCase = true)
@@ -97,11 +99,14 @@ fun Home(
                         ){
 
                             Icon(
-                                imageVector = Icons.Rounded.Info,
-                                contentDescription = "Carrinho",
+                                imageVector = Icons.Rounded.Edit,
+                                contentDescription = "Mesa",
                                 tint = MaterialTheme.colorScheme.secondary,
                                 modifier = Modifier.size(30.dp).clickable {
-                                    carrinhoViewModel.numMesa.intValue ++
+                                    //carrinhoViewModel.numMesa.intValue ++
+
+                                    mostrarDialogoEdicaoMesa = true // Abre o diálogo
+
                                 }
                             )
 
@@ -194,6 +199,15 @@ fun Home(
                     }
                 }
             }
+
+            // Mostra o diálogo se mostrarDialogoEdicaoMesa for true
+            if (mostrarDialogoEdicaoMesa) {
+                EditarMesaDialog(
+                    carrinhoViewModel = carrinhoViewModel,
+                    onDismissRequest = { mostrarDialogoEdicaoMesa = false }
+                )
+            }
+
         }
 
     }
